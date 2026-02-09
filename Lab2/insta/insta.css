@@ -157,7 +157,7 @@ position: absolute;
     cursor: pointer;
     font-weight: 600;
     font-size: 12px;
-    text-decoration: none;
+    text-decoration: underline;
     color: #000;
 }
 
@@ -174,7 +174,7 @@ position: absolute;
 }
 
 .meta img {
-    width: 80px; 
+    width: 80px;
     opacity: 0.8;
 
 }

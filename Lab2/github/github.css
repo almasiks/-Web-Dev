@@ -57,6 +57,16 @@ h1.title {
     padding: 20px;
     box-shadow: 0 10px 20px rgba(27, 31, 36, 0.5);
 }
+
+.card-special{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid blue;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(27, 31, 36, 0.5);
+}
 .price {
     margin-top: 20px;
     font-family: "Mona Sans";
