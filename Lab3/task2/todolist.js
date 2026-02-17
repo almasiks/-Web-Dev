@@ -69,5 +69,9 @@ input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         addTask();
     }
+<<<<<<< HEAD
 });
 
+=======
+});
+>>>>>>> 0f7d91fa911e3411d605827a8ce01fb99bb5b4fe
