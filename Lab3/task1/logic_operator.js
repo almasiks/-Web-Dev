@@ -1,0 +1,18 @@
+alert( true || true );   // true
+alert( false || true );  // true
+alert( true || false );  // true
+alert( false || false ); // false
+
+if (1 || 0) { // works just like if( true || false )
+  alert( 'truthy!' );
+}
+
+
+alert( true && true );   // true
+alert( false && true );  // false
+alert( true && false );  // false
+alert( false && false ); // false
+
+
+alert( !true ); // false
+alert( !0 ); // true
