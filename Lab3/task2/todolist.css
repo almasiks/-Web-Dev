@@ -17,7 +17,7 @@ body{
     text-align: center;
     margin-right: 145px;
 }
-#todoinp{
+#todoapp{
     width: 45%;
     height: 28px;
     margin-top: -4px;
@@ -35,7 +35,7 @@ body{
 }
 #todolist{
     list-style: none;
-    padding: 0px;
+    padding: 0;
     border: 1px solid #eee;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -57,7 +57,6 @@ body{
 }
 
 .task-text {
-    flex-grow: 1;
     margin-left: 15px;
     text-align: left;
     font-size: 16px;
@@ -69,9 +68,5 @@ body{
     color: #ff4d4d;
     cursor: pointer;
     font-size: 18px;
-}
-
-.del-btn:hover {
-    color: #ce2828;
 }
 

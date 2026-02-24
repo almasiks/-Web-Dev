@@ -1,4 +1,4 @@
-const input = document.getElementById('todoinp');
+const input = document.getElementById('todoapp');
 const addBtn = document.getElementById('button-add');
 const todoList = document.getElementById('todolist');
 
@@ -9,12 +9,13 @@ function addTask() {
     if (taskValue === "") return;
 
 
-    const li = document.createElement('li');
-    li.style.display = "flex";
-    li.style.alignItems = "center";
-    li.style.padding = "40px";
-    li.style.border = "2px solid #eee";
-    li.style.borderRadius ="6px";
+
+    const list = document.createElement('list');
+    list.style.display = "flex";
+    list.style.alignItems = "center";
+    list.style.padding = "40px";
+    list.style.border = "2px solid #eee";
+    list.style.borderRadius ="6px";
 
 
     const checkbox = document.createElement('input');
@@ -47,31 +48,27 @@ function addTask() {
 
 
     delBtn.addEventListener('click', () => {
-        todoList.removeChild(li);
+        todoList.removeChild(list);
     });
 
 
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(delBtn);
+    list.appendChild(checkbox);
+    list.appendChild(span);
+    list.appendChild(delBtn);
 
 
-    todoList.appendChild(li);
+    todoList.appendChild(list);
 
     input.value = "";
 }
 
 
-addBtn.addEventListener('click', addTask);
+    addBtn.addEventListener('click', addTask);
 
 
 input.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         addTask();
     }
-<<<<<<< HEAD
-});
+})
 
-=======
-});
->>>>>>> 0f7d91fa911e3411d605827a8ce01fb99bb5b4fe
