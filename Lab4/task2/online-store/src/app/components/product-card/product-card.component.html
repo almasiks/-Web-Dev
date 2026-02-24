@@ -1,0 +1,25 @@
+<div class="product-card">
+  <div class="image-slider">
+    <button class="slider-btn" (click)="prevImage()">❮</button>
+    <img [src]="product.images[currentIndex]" (error)="onImageError($event)" [alt]="product.name">
+    <button class="slider-btn" (click)="nextImage()">❯</button>
+  </div>
+
+  <div class="product-info">
+    <h3>{{ product.name }}</h3>
+    <p class="description">{{ product.description }}</p>
+    <p class="price">Цена: <span>{{ product.price }} ₸</span></p>
+  </div>
+
+  <div class="actions">
+    <a [href]="product.link" target="_blank" class="buy-btn">
+      🛒 Купить на Kaspi
+    </a>
+
+    <button (click)="like()" class="like-btn">❤️ {{ product.likes }}</button>
+    <button (click)="shareOnWhatsApp()" class="btn-wa">WhatsApp</button>
+    <button (click)="shareOnTelegram()" class="btn-tg">Telegram</button>
+    
+    <button (click)="removeProduct()" class="delete-btn">🗑️ Удалить товар</button>
+  </div>
+</div>

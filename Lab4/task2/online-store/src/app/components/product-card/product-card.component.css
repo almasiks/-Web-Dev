@@ -1,0 +1,121 @@
+.product-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.image-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  margin-bottom: 15px;
+}
+
+.image-slider img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.slider-btn:first-child { left: 0; }
+.slider-btn:last-child { right: 0; }
+
+
+h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  height: 2.4em; 
+  overflow: hidden;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  flex-grow: 1; 
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.buy-btn {
+  grid-column: span 2;
+  background-color: #f14635; 
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.like-btn, .btn-wa, .btn-tg {
+  border: 1px solid #eee;
+  background: #f9f9f9;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.like-btn:hover { background: #fee; border-color: #fbb; }
+
+.delete-btn {
+  grid-column: span 2;
+  background: none;
+  border: 1px solid #ffcccc;
+  color: #ff5252;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #fff0f0;
+}

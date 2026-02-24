@@ -1,0 +1,20 @@
+<div class="category-container">
+  <button 
+    *ngFor="let cat of categories" 
+    (click)="selectCategory(cat.id)"
+    [class.active]="selectedCategoryId === cat.id">
+    {{ cat.name }}
+  </button>
+</div>
+
+<div class="product-grid" *ngIf="selectedCategoryId">
+  <app-product-card 
+    *ngFor="let p of filteredProducts" 
+    [product]="p"
+    (remove)="onRemoveProduct($event)">
+  </app-product-card>
+</div>
+
+<div class="empty-state" *ngIf="!selectedCategoryId">
+  <p>Выберите категорию, чтобы увидеть товары</p>
+</div>
