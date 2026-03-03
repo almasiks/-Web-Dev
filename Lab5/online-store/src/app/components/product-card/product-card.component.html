@@ -16,7 +16,7 @@
       🛒 Купить на Kaspi
     </a>
 
-    <button (click)="like()" class="like-btn">❤️ {{ product.likes }}</button>
+   <button (click)="like()" class="like-btn" [class.active]="isLiked">{{ isLiked ? '❤️' : '🤍' }} {{ product.likes }}</button>
     <button (click)="shareOnWhatsApp()" class="btn-wa">WhatsApp</button>
     <button (click)="shareOnTelegram()" class="btn-tg">Telegram</button>
     

@@ -1,0 +1,9 @@
+<h1>Albums List</h1>
+<div *ngIf="loading">Loading albums...</div>
+
+<ul *ngIf="!loading">
+  <li *ngFor="let album of albums">
+    <a [routerLink]="['/album', album.id]">{{ album.title }} - {{ album.userId }}</a>
+    <button (click)="deleteAlbum(album.id)">Delete</button>
+  </li>
+</ul>

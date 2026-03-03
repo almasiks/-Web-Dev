@@ -14,13 +14,17 @@ export class ProductCardComponent {
   @Output() remove = new EventEmitter<number>();
 
   currentIndex: number = 0; 
-
   
+  isLiked: boolean = false; 
   like() {
-    this.product.likes++;
+    if(!this.isLiked) { 
+      this.product.likes++;
+      this.isLiked = true;
+    } else {
+      this.product.likes--;
+      this.isLiked = false;
+    }
   }
-
-  
   removeProduct() {
     this.remove.emit(this.product.id);
   }
