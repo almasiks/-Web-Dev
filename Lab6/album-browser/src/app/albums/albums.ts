@@ -25,9 +25,7 @@ export class AlbumsComponent implements OnInit {
   }
 
   deleteAlbum(id: number) {
-    // Удаляем из UI сразу для отзывчивости
     this.albums = this.albums.filter(a => a.id !== id);
-    // Вызов API
     this.albumsService.deleteAlbum(id).subscribe();
   }
 }
