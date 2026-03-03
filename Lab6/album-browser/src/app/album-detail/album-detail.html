@@ -1,20 +1,17 @@
-<div *ngIf="loading">Loading details...</div>
+<div *ngIf="album" class="detail-card">
+  <button (click)="goBack()" class="back-btn">← Back to List</button>
+  
+  <div class="info-header">
+    <h2>Edit Album #{{album.id}}</h2>
+    <p>User ID: {{album.userId}}</p>
+  </div>
 
-<div *ngIf="album && !loading">
-  <h1>Album Details</h1>
-  <h2>{{ album.title }}</h2>
-  <p><strong>User ID:</strong> {{ album.userId }}</p>
-  <p><strong>Album ID:</strong> {{ album.id }}</p>
-
-  <label>
-    <strong>Edit Title:</strong>
-    <input [(ngModel)]="album.title" type="text" style="width: 300px;">
-  </label>
-  <br><br>
-  
-  <button (click)="saveTitle()">Save</button>
-  
-  <button [routerLink]="['/album', album.id, 'photos']">View Photos</button>
-  
-  <button [routerLink]="['/albums']">Back to Albums</button>
+  <div class="edit-section">
+    <label for="title">Album Title:</label>
+    <input id="title" [(ngModel)]="album.title" type="text">
+    <div class="actions">
+      <button (click)="save()" class="save-btn">Save Changes</button>
+      <button [routerLink]="['/albums', album.id, 'photos']" class="photos-btn">View Photos</button>
+    </div>
+  </div>
 </div>

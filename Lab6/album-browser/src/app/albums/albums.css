@@ -1,0 +1,29 @@
+.album-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.album-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.album-link {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-top: 50px;
+}

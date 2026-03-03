@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { AlbumPhotosComponent } from './album-photos';
+
 describe('AlbumPhotosComponent', () => {
   let component: AlbumPhotosComponent;
   let fixture: ComponentFixture<AlbumPhotosComponent>;

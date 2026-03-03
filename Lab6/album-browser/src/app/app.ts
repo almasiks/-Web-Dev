@@ -1,14 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive} from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive], 
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class AppComponent {
-  title_album = 'album-browser';
-  protected readonly title = signal('album-browser');
+  title = 'album-browser';
 }

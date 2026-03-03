@@ -1,14 +1,18 @@
-  <div class="container">
-    <h2>Photos of Album #{{ albumId }}</h2>
-    
-    <button [routerLink]="['/album', albumId]" class="back-btn">← Back to Album Details</button>
+<div class="container">
+  <button [routerLink]="['/albums', albumId]">← Back to Album</button>
 
-    <div *ngIf="loading" class="loader">Loading photos...</div>
+  <h2>Album #{{albumId}} Photos</h2>
 
-    <div *ngIf="!loading" class="photo-grid">
-      <div *ngFor="let photo of photos" class="photo-card">
-        <img [src]="photo.thumbnailUrl" [alt]="photo.title">
-        <p class="photo-title">{{ photo.title }}</p>
+  <div class="photos-grid">
+    <div *ngFor="let photo of photos" class="photo-card">
+      
+       <img [src]="'https://picsum.photos/150?random=' + photo.id" [alt]="photo.title">
+      
+      <div class="photo-info">
+        <p>{{photo.title}}</p>
+        <a [href]="photo.url" target="_blank">View Full Image</a>
       </div>
+      
     </div>
   </div>
+</div>

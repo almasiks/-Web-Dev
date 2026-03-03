@@ -1,43 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'; 
-import { Album } from '../model';
-import { AlbumsService } from '../album.service';
+import { FormsModule } from '@angular/forms';
+import { AlbumsService } from '../albums.service';
+import { Album } from '../model/models';
 
 @Component({
   selector: 'app-album-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule], 
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './album-detail.html',
-  styleUrl: './album-detail.css',
+  styleUrl: './album-detail.css'
 })
 export class AlbumDetailComponent implements OnInit {
-  album!: Album;
-  loading: boolean = true;
+  album?: Album;
 
   constructor(
     private route: ActivatedRoute,
-    private albumsService: AlbumsService
+    private router: Router,
+    private albumsService: AlbumsService,
+    private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.albumsService.getAlbum(id).subscribe({
-      next: (album) => {
-        this.album = album;
-        this.loading = false; 
-      },
-      error: () => {
-        this.loading = false;
-      }
-    });
+    this.albumsService.getAlbum(id).subscribe(data => {
+      this.album = data; 
+      this.cdr.detectChanges();
+    });}
+
+  save() {
+    if (this.album) {
+      this.albumsService.updateAlbum(this.album).subscribe(() => {
+        alert('Album title updated!');
+      });
+    }
   }
 
-  saveTitle(): void {
-    this.albumsService.updateAlbum(this.album).subscribe(updatedAlbum => {
-      alert('Saved!');
-      this.album = updatedAlbum; 
-    });
+  goBack() {
+    this.router.navigate(['/albums']);
   }
 }

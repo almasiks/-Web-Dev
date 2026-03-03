@@ -1,36 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Album } from '../model';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AlbumsService } from '../album.service';
+import { RouterModule } from '@angular/router';
+import { AlbumsService } from '../albums.service';
+import { Album } from '../model/models';
 
 @Component({
   selector: 'app-albums',
-  imports: [RouterModule, CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './albums.html',
-  styleUrl: './albums.css',
+  styleUrl: './albums.css'
 })
 export class AlbumsComponent implements OnInit {
   albums: Album[] = [];
   loading: boolean = true;
 
-constructor(private albumsService: AlbumsService) { }
+  constructor(private albumsService: AlbumsService) {}
 
-ngOnInit(): void {
-  this.albumsService.getAlbums().subscribe({
-    next: (data: Album[]) => {
+  ngOnInit() {
+    this.albumsService.getAlbums().subscribe(data => {
       this.albums = data;
       this.loading = false;
-    },
-    error: (error) => {
-      console.error('Error fetching albums:', error);
-      this.loading = false;
-    }
-  });
-}
+    });
+  }
 
-  deleteAlbum(id: number): void {
-    this.albums = this.albums.filter(album => album.id !== id);
+  deleteAlbum(id: number) {
+    // Удаляем из UI сразу для отзывчивости
+    this.albums = this.albums.filter(a => a.id !== id);
+    // Вызов API
     this.albumsService.deleteAlbum(id).subscribe();
   }
 }

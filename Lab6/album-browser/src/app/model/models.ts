@@ -1,7 +1,8 @@
+
 export interface Album {
   userId: number;
-  title: string;
   id: number;
+  title: string;
 }
 
 export interface Photo {
